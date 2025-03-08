@@ -1,0 +1,29 @@
+// Write a Jenkinsfile for a simple pipeline
+
+pipeline{
+    agent any
+    stages{
+        stage("First Script"){
+            steps{
+                echo "========executing A========"
+            }
+        }
+        stage("Execute script"){
+            steps{
+                echo "Executed two stages in the First script"
+            }
+
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
