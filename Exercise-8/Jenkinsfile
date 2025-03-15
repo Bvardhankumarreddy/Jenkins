@@ -1,0 +1,49 @@
+// Integrate Jenkins with Terraform for automated infrastructure deployment
+pipeline {
+    agent any
+
+    environment {
+        TF_CLI_ARGS_apply="-auto-approve"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git credentialsId: 'your-git-credentials-id', url: 'git@github.com:your-repo.git', branch: 'main'
+            }
+        }
+
+        stage('Initialize Terraform') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
+        stage('Validate Terraform') {
+            steps {
+                sh 'terraform validate'
+            }
+        }
+
+        stage('Plan Terraform') {
+            steps {
+                sh 'terraform plan'
+            }
+        }
+
+        stage('Apply Terraform') {
+            steps {
+                sh 'terraform apply'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Terraform deployment completed!"
+        }
+        failure {
+            echo "Terraform deployment failed!"
+        }
+    }
+}
