@@ -1,17 +1,20 @@
 variable "ami" {
-    description = "ami-0198a868663199764"
+    description = "EC2 AMI"
     type = string 
+    default = "ami-0198a868663199764" 
 }
 
 variable "instance_type" {
-    description = "t2.micro"
+    description = "Instance Type"
     type = string
+    default = "t2.micro"
   
 }
 
 variable "instance_name" {
     description = "Terraform-testing"
     type = string
+    default = "Terraform-testing"
   
 }
 
