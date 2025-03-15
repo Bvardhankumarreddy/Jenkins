@@ -40,7 +40,7 @@ pipeline {
 
     post {
         always {
-            echo "Terraform deployment completed!"
+            echo "Terraform deployment completed(:-!"
         }
         failure {
             echo "Terraform deployment failed!"
