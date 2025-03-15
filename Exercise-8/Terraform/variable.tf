@@ -14,7 +14,7 @@ variable "instance_type" {
 variable "instance_name" {
     description = "Terraform-testing"
     type = string
-    default = "Terraform-testing"
+    default = "Terraform-Jenkins"
   
 }
 
